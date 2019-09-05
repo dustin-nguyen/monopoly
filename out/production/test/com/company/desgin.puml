@@ -1,0 +1,90 @@
+@startuml
+land <|-- buyable
+buyable <|-- house
+land <|-- unbuyable
+unbuyable <|--parkinglot
+unbuyable <|--jail
+unbuyable <|--startingpoint
+unbuyable <|--gotojail
+broad *-- land
+
+player *-- card_deck
+player *-- house
+player *-- jail
+player *-- startingpoint
+player *-- feature
+
+menu*--broad
+broad*-- player
+
+
+card_deck <|-- card1
+card_deck <|-- card2
+card_deck <|-- card3
+
+
+class parkinglot{
+
+}
+
+class card3{
++send_player_to_jail()
+}
+
+class card2{
++give_money_from_player()
+}
+
+class card1{
++take_money_from_player()
+
+}
+class land{
+- String name
+- int x,y,width,height
+
++getname()
+}
+class menu{
++display()// slick
+}
+
+
+class player{
+- String name
+-int money
+- house[] listofhouse
++getmoney()
++getname()
++setmoney()
++sellHouse()
++buyHouse()
++toString()
+}
+
+class house{
+- int inital_value
++getvalue()
++setvalue()
+}
+
+
+class startingpoint{
++give-player-200$()
+}
+
+class jail{
+
+}
+
+class broad{
++displayplayer()// slick
++playermove()
++checkbuy()
++dice_display()
++dice_calculation()
+}
+class unbuyable{
++ability()
+}
+@enduml
